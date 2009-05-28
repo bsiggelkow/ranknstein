@@ -1,0 +1,41 @@
+RankNStein is a simple web application that allows you to find 
+out where your website (or any url for that matter) ranks on search
+engines when people search for a given phrase or set of keywords.
+
+RankNStein began as an itch for me to scratch -- in two ways. First,
+I really wanted to learn how to build a soup-to-nuts Sinatra application.
+From creating stories in Pivotal Tracker, to writing Cucumber user stories,
+to the implementation, to deployment.
+
+Second, though the service provided by RankNStein seems very basic -- that is,
+it provides an automated means of handling a manual task -- I was amazed
+that I was not able to find a similar capability on the web. All the solutions
+I found were usually driven by commercial entities in the SEO space.
+
+The initial implementation of RankNStein will provide a very simple interface
+that looks like the following:
+
+       +-------------------------------------------------------------+
+       |                                                             |
+       |        When I search for: ________________________________  |
+       |                      in Google ...                          |
+       |            My webpage at: ________________________________  |
+       |                                                             |
+       |                       +------------+                        |
+       |                       |  Ranks ... |                        |
+       |                       +------------+                        |
+       |                                                             |
+       |                             15                              |
+       +-------------------------------------------------------------+
+       
+My ideas after implementing this initial solution include 
+  (in quasi-chronological order):
+
+ - A restful API for service integration
+ - Ability to search multiple search engines
+ - Spam prevention? (Do I need/want to prohibit pr0n sites?)
+ - Cookie-backed saved searches (inherently constrained)
+ - Database-backed saved searches (major architectural shift)
+ - Trending (i.e. saved searches with history)
+ - Visualization (depends on trending)
+ - RSS Feeds
