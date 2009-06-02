@@ -1,0 +1,11 @@
+%h1 Welcome to RankNStein!
+%form#main{ :action => '/rank', :method => 'get' }
+  When someone searches for ...
+  %br
+  %input#query{:type => 'text', :name => 'query', :size => 20}
+  %p
+    my page at:
+  %input#url{:type => 'text', :name => 'url', :value => 'Enter URL ...', :size => 20}
+  %br
+  %input{:type => 'submit', :value => 'ranks ...'}
+ 

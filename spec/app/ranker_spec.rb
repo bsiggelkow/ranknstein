@@ -18,7 +18,7 @@ describe Ranker do
         :domain    =>"www.oreillynet.com"
       }, 
       {
-        :url       =>"http://www.amazon.com/Jakarta-Struts-Cookbook-Bill-Siggelkow/dp/059600771X", 
+        :url       =>"http://www.amazon.com/Jakarta-Struts-Cookbook-Bill-Siggelkow/dp/059600771X?eatmore=chicken", 
         :title     =>"Amazon.com: Jakarta Struts Cookbook: Bill Siggelkow: Books", 
         :cache_url =>"http://www.google.com/search?q=cache:kZkaJZqNeVsJ:www.amazon.com", 
         :content   =>"<b>Bill Siggelkow</b> is an independent consultant specializing in software design,   <b>....</b> 4.0 out of 5 stars Good Struts meal cooked by <b>Bill Siggelkow</b> <b>...</b>", 
@@ -37,14 +37,73 @@ describe Ranker do
     query = 'bill siggelkow'
     url   = 'http://jadecove.com/'
     ranker = Ranker.new(query, url)
-    RubyWebSearch::Google.should_receive(:search).with({:query => query, :size => 500}).and_return(mock('response', :results => @valid_results))
-    ranker.rank.should == 4
+    RubyWebSearch::Google.should_receive(:search).with({:query => query, :size => 64}).and_return(mock('response', :results => @valid_results))
+    ranker.rank.first.should == 4
   end
   it "should return nil if no matching result" do
     query = 'bill siggelkow'
     url   = 'http://example.com/'
     ranker = Ranker.new(query, url)
-    RubyWebSearch::Google.should_receive(:search).with({:query => query, :size => 500}).and_return(mock('response', :results => @valid_results))
+    RubyWebSearch::Google.should_receive(:search).with({:query => query, :size => 64}).and_return(mock('response', :results => @valid_results))
     ranker.rank.should be_nil
   end
+  it 'should normalize the url' do
+    query = 'bill siggelkow'
+    url   = 'http://www.wsbtv.com'
+    ranker = Ranker.new(query, url)
+    ranker.url.should == 'http://www.wsbtv.com/'
+  end
+
+  describe 'with fuzzy match' do
+    before do
+      RubyWebSearch::Google.stub!(:search).and_return(mock('response', :results => @valid_results))
+    end
+      
+    it 'should match on missing protocol' do
+      ranker = Ranker.new('some matching text', 'billsiggelkow.com')
+      rank, result = ranker.rank
+      rank.should == 1
+      result[:url].should == 'http://billsiggelkow.com/'
+    end
+
+    it 'should match regardless http or https' do
+      ranker = Ranker.new('some matching text', 'https://billsiggelkow.com')
+      rank, result = ranker.rank
+      rank.should == 1
+      result[:url].should == 'http://billsiggelkow.com/'
+    end
+
+    it 'should match against any path' do
+      ranker = Ranker.new('some matching text', 'http://www.oreillynet.com')
+      rank, result = ranker.rank
+      rank.should == 2
+      result[:url].should == 'http://www.oreillynet.com/cs/catalog/view/au/1895'
+    end
+
+    it 'should match regardless of the query string' do
+      ranker = Ranker.new('some matching text', 'http://www.amazon.com')
+      rank, result = ranker.rank
+      rank.should == 3
+      result[:url].should == 'http://www.amazon.com/Jakarta-Struts-Cookbook-Bill-Siggelkow/dp/059600771X?eatmore=chicken'
+    end
+
+    it 'should match regardless of www' do
+      ranker = Ranker.new('some matching text', 'amazon.com')
+      rank, result = ranker.rank
+      rank.should == 3
+      result[:url].should == 'http://www.amazon.com/Jakarta-Struts-Cookbook-Bill-Siggelkow/dp/059600771X?eatmore=chicken'
+    end
+  end
+      
+  # describe 'fuzzy url' do
+  #   it 'should prepend the protocol if missing' do
+  #     ranker = Ranker.new('foo', 'bar.com')
+  #     ranker.fuzzy_url.should == 'http://bar.com'
+  #   end
+  #   it 'should prepend the protocol if it\'s there' do
+  #     ranker = Ranker.new('foo', 'http://bar.com')
+  #     ranker.fuzzy_url.should == 'http://bar.com/'
+  #   end
+  # end
+
 end

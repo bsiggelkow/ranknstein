@@ -1,0 +1,9 @@
+- if rank
+  %h1 Your page ranks number ...
+  %p#rank
+    = rank
+- else
+  %h1 Bummer ... you're not ranked in the top 64 ...
+#try_again
+  %a{ :href => '/'}
+    Try Again
