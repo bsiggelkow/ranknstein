@@ -1,9 +1,18 @@
 - if rank
-  %h1 Your page ranks number ...
+  %p#heading
+    Your page ranks number ...
   %p#rank
     = rank
+  %p#result
+    RankNStein searched on
+    %span.query
+      = query
+    and found
+    %a{:href => result[:url]}
+      = result[:url]
 - else
-  %h1 Bummer ... you're not ranked in the top 64 ...
+  %p#heading
+    You're not ranked in the top 64 ... RankNStein ANGRY!
 #try_again
   %a{ :href => '/'}
-    Try Again
+    Try Again?

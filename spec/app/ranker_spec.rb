@@ -94,6 +94,23 @@ describe Ranker do
       result[:url].should == 'http://www.amazon.com/Jakarta-Struts-Cookbook-Bill-Siggelkow/dp/059600771X?eatmore=chicken'
     end
   end
+  
+  describe 'with exact match' do
+    before do
+      RubyWebSearch::Google.stub!(:search).and_return(mock('response', :results => @valid_results))
+    end
+    it 'should match when exact' do
+      ranker = Ranker.new('some matching text', 'http://billsiggelkow.com/', false)
+      rank, result = ranker.rank
+      rank.should == 1
+      result[:url].should == 'http://billsiggelkow.com/'
+    end
+    it 'should not match when not exact' do
+      ranker = Ranker.new('some matching text', 'billsiggelkow.com/', false)
+      rank, result = ranker.rank
+      rank.should be_nil
+    end
+  end
       
   # describe 'fuzzy url' do
   #   it 'should prepend the protocol if missing' do

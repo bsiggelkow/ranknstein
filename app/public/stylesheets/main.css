@@ -57,14 +57,12 @@ blockquote, q {
 body {
   font-size: 87.5%;
   font-family: Helvetica, Arial, sans-serif;
-  margin: 1em;
+  margin: 2em;
 }
 
-h1 {
-  font-family: Georgia, Times, serif;
-  font-size: 5em;
-  width: 60%;
-  margin: 0.5em auto;
+form p {
+  text-align: center;
+  margin: 10px auto 50px auto !important;
 }
 
 p#rank {
@@ -74,6 +72,46 @@ p#rank {
   color: #800517;
 }
 
+span.query {
+  font-style: italic;
+}
+
+p#result {
+  color: gray;
+  text-align: center;
+  font-size: 1em;
+}
+
+label {
+  font-family: Georgia, Times, serif;
+  font-size: 2em;
+  color: black;
+  text-align: center;
+}
+
+.submit {
+  font-family: Georgia, Times, serif;
+}
+
+/*.submit {
+background-color: #c0c0c0;
+font-family: verdana;
+border: #000000 1px solid;
+font-size: 20px;
+color: #778899
+}
+*/
+p#result a {
+  color: gray;
+}
+
+p#heading {
+  font-family: Georgia, Times, serif;
+  font-size: 5em;
+  width: 60%;
+  margin: 0.5em auto;
+  text-align: center;
+}
 #try_again {
   text-align: center;
   font-size: 5em;
@@ -85,17 +123,9 @@ p#rank {
   text-decoration: none;
   border-bottom: 1px dotted gray;
 }
-p, ul {
-  width: 60% !important;
-  margin: 0 auto !important;
-  padding-bottom: 0.5em;
-}
-
-form {
-  width: 60% !important;
-  margin: 2em auto !important;
-}
-
 input {
+  margin-top: .75em;
+  padding-left: .75em;
+  padding-top: .75em;
   font-size: 2em;
 }
