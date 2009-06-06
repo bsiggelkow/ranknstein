@@ -13,7 +13,7 @@ that I was not able to find a similar capability on the web. All the solutions
 I found were usually driven by commercial entities in the SEO space.
 
 The initial implementation of RankNStein will provide a very simple interface
-that looks like the following:
+that looks something like the following:
 
        +-------------------------------------------------------------+
        |                                                             |
@@ -39,3 +39,10 @@ My ideas after implementing this initial solution include
  - Trending (i.e. saved searches with history)
  - Visualization (depends on trending)
  - RSS Feeds
+ 
+=============================
+Gem Dependencies
+-----------------------------
+sinatra
+haml
+bsiggelkow-ruby-web-search (this is my fork of ruby-web-search)
