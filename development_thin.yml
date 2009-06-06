@@ -1,0 +1,12 @@
+---
+environment: development 
+chdir: /Users/bsiggelkow/work/ranknstein/
+address: 127.0.0.1
+port: 7654 
+pid: tmp/pids/thin.pid 
+rackup: /Users/bsiggelkow/work/ranknstein/config.ru 
+log: tmp/log/thin.log 
+max_conns: 256 
+timeout: 30 
+max_persistent_conns: 128 
+daemonize: false

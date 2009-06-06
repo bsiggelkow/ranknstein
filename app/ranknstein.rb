@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'haml'
-require File.dirname(__FILE__) + '/ranker'
+require 'app/ranker'
 
 get '/' do
   haml :index
