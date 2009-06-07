@@ -25,6 +25,23 @@ describe 'Ranknstein' do
   end
 
   describe 'get /rank' do
+    describe 'with a valid query string' do
+      def do_get
+        @params = {'query' => 'foo', 'url' => 'bar.com'}
+        @ranker =  mock('ranker')
+        Ranker.stub!(:new).and_return(@ranker)
+        @ranker.should_receive(:rank).and_return([1,{:url => 'bar.com'}])
+        get '/rank', @params
+      end
+      it 'should respond with ok' do
+        do_get
+        last_response.should be_ok
+      end
+      it 'should have a Google analytics tag' do
+        do_get
+        last_response.body.should =~ /google\-analytics/
+      end
+    end
     describe 'with an invalid query string which' do
       def do_get
         get '/rank', @params
