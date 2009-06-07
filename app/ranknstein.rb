@@ -3,6 +3,13 @@ require 'sinatra'
 require 'haml'
 require 'app/ranker'
 
+# Usage: partial :foo => renders _foo.haml
+helpers do
+  def partial(page, options={})
+    haml page, options.merge!(:layout => false)
+  end
+end
+
 get '/' do
   haml :index
 end
@@ -10,7 +17,8 @@ end
 get '/rank' do
   query = params['query']
   url = params['url']
-  
+  redirect '/' unless (query && !query.empty?) && (url && !url.empty?)
+
   ranker = Ranker.new(query, url)
   rank, result = ranker.rank
   haml :rank, :locals => {:rank => rank, :result => result, :query => query}

@@ -129,3 +129,13 @@ input {
   padding-top: .75em;
   font-size: 2em;
 }
+
+#donate {
+  float:right;
+  font-style: italic;
+  color: gray;
+}
+
+#donate form {
+  display: inline;
+}
