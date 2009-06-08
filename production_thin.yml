@@ -5,7 +5,7 @@ address: 127.0.0.1
 port: 7654 
 pid: /home/bsiggelkow/public_html/ranknstein.com/tmp/pids/thin.pid 
 rackup: /home/bsiggelkow/public_html/ranknstein.com/current/config.ru 
-log: /home/bsiggelkow/public_html/ranknstein.com/log/thin.log 
+log: /home/bsiggelkow/public_html/ranknstein.com/current/log/thin.log 
 max_conns: 256 
 timeout: 30 
 max_persistent_conns: 128 
