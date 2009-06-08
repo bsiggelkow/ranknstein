@@ -1,15 +1,19 @@
-set :application, "ranknstein.com"
+set :application, "ranknstein"
 set :user, "bsiggelkow" # I used root, less problems, but not recommended.
-set :use_sudo, true
+set :use_sudo, false
 set :scm, :git
  
 # This distinction is necessary if the way you access github locally
 # is different from the way your production environment will access it.
 # For me it was the case.
-set :repository, "git@github.com:bsiggelkow/ranknstein.git"
  
-set :deploy_to, "/home/bsiggelkow/public_html/ranknstein" # path to app on remote machine
-set :deploy_via, :remote_cache # quicker checkouts from github
+set :deploy_to, "/home/bsiggelkow/public_html/#{application}.com" # path to app on remote machine
+# use local copy
+set :copy_strategy, :export
+set :deploy_via, :copy
+set :copy_cache, true
+set :copy_exclude, ['.git']
+set :repository, "git@github.com:bsiggelkow/#{application}.git"
  
 set :domain, '209.20.64.33' # your remote machine's domain name goes here
 role :app, domain
