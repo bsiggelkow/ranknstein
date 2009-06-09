@@ -1,5 +1,5 @@
 - if rank
-  %p#heading
+  %h1#heading
     Your page ranks number ...
   %p#rank
     = rank
@@ -11,7 +11,7 @@
     %a{:href => result[:url]}
       = result[:url]
 - else
-  %p#heading
+  %h1#heading
     You're not ranked in the top 64 ... RankNStein ANGRY!
 #try_again
   %a{ :href => '/'}

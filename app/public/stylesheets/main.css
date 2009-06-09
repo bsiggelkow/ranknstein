@@ -105,7 +105,7 @@ p#result a {
   color: gray;
 }
 
-p#heading {
+h1#heading {
   font-family: Georgia, Times, serif;
   font-size: 5em;
   width: 60%;

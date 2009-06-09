@@ -31,6 +31,8 @@ that looks something like the following:
 My ideas after implementing this initial solution include 
   (in quasi-chronological order):
 
+ - FAQ
+ - Display of result detail in unobtrusive div
  - A restful API for service integration
  - Ability to search multiple search engines
  - Spam prevention? (Do I need/want to prohibit pr0n sites?)

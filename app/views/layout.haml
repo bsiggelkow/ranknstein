@@ -2,8 +2,10 @@
 %html
   %head
     %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-type" }
-    %link{ :href => "/stylesheets/main.css", :rel => "stylesheet", :media => "screen", :type => "text/css", :charset => "utf-8" }
+    %meta{ :content => "Where does my page rank on Google? Find out with RankNStein - an easy-to-use no-nonsense SERP tool.", :name => 'description'}
+    %meta{ :content => "SEO, search engine optimization, SERP tool, page rank, keyword search", :name => 'keywords'}
     %title
       RankNStein
+    %link{ :href => "/stylesheets/main.css", :rel => "stylesheet", :media => "screen", :type => "text/css", :charset => "utf-8" }
   %body#ranknstein
     = yield
