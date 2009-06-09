@@ -23,3 +23,7 @@ get '/rank' do
   rank, result = ranker.rank
   haml :rank, :locals => {:rank => rank, :result => result, :query => query}
 end
+
+get '/faq' do
+  haml :faq
+end
