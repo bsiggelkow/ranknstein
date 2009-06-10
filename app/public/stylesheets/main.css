@@ -50,10 +50,6 @@ blockquote, q {
   quotes: "" "";
 }
 
-/*
- * Shorten
- */
-
 body {
   font-size: 87.5%;
   font-family: Helvetica, Arial, sans-serif;
@@ -93,14 +89,6 @@ label {
   font-family: Georgia, Times, serif;
 }
 
-/*.submit {
-background-color: #c0c0c0;
-font-family: verdana;
-border: #000000 1px solid;
-font-size: 20px;
-color: #778899
-}
-*/
 p#result a {
   color: gray;
 }
@@ -131,7 +119,8 @@ input {
 }
 
 #donate {
-  float:right;
+  text-align: center;
+  margin: 1em auto;
   font-style: italic;
   color: gray;
 }
@@ -142,4 +131,37 @@ input {
 
 .clr {
   clear: both;
+}
+dl {
+  font-size: 1.5em;
+  margin: 0.5em auto;
+}
+dt {
+  font-family: Georgia, Times, serif;
+  font-style: italic;
+}
+dd {
+  color: gray;
+  font-family: Georgia, Times, serif;
+  margin: 0.5em auto 1em 1em;
+}
+#footer {
+  font-family: Georgia, Times, serif;
+  font-size: 0.8em;
+  color: gray;
+  width: 100%;
+  margin: 1em auto;
+  text-align: center;
+}
+
+#footer li {
+  display:inline;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+#footer a {
+  color: gray;
+  text-decoration: none;
+  border-bottom: 1px dotted lightgray;
 }

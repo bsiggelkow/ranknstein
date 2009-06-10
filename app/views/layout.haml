@@ -9,3 +9,15 @@
     %link{ :href => "/stylesheets/main.css", :rel => "stylesheet", :media => "screen", :type => "text/css", :charset => "utf-8" }
   %body#ranknstein
     = yield
+    #footer
+      %ul
+        %li
+          %a{:href => '/faq'}
+            FAQ
+        %li
+          Copyright &copy;2009 
+          %a{:href => 'http://jadecove.com', :target => :new}
+            Jade Cove Solutions
+        %li
+          %a{:href => 'http://github.com/bsiggelkow/ranknstein/issues', :target => :new}
+            Support

@@ -1,14 +1,16 @@
+%h1#heading Frequently Asked Questions
+
 %dl
   %dt What is RankNStein?
-  %dd RankNStein is a simple tool that tells where your website (or any URL for that matter) shows up in Google based on a given search term(s).
+  %dd RankNStein is a simple tool that tells you where your website (or any URL for that matter) shows up in Google based on a given search term(s).
 
   %dt Why is only Google searched?
-  %dd RankNStein is opinionated software. It's RankNStein's opinion that Google is the only search engine that matters.
+  %dd RankNStein is opinionated software. It's RankNSteins opinion that Google is the only search engine that matters.
 
   %dt Why does RankNStein only look at the top 64 results?
   %dd 
-    Due to a technical limitation of the Google search API, RankNStein can get no more than 64 results.
-    To be honest, if your website does show up in the top 64 for a "good" search string, chances are 
+    Because of a technical limitation of the Google search API, RankNStein can get no more than 64 results.
+    If your website does not show up in the top 64 (page 7) for a "good" search string, chances are 
     you need to work on your SEO.
 
   %dt Is there more detailed information that RankNStein can show me?
@@ -16,4 +18,35 @@
     While RankNStein does have additional data (e.g. the content matched on, who was #1, ...), 
     RankNStein's beauty lies in it's simplicity. At some point, RankNStein may provide this additional
     data in a manner that maintains its elegance.
+
+  %dt Does RankNStein capture the terms and URLs I search on?
+  %dd 
+    RankNStein does not store the information you submit.
+
+  %dt How does RankNStein make money? Why aren't there any ads on your site?
+  %dd 
+    RankNStein is opinionated software. In RankNStein's opinion, ads take away from the simplicity
+    and elegance of the user interface. RankNStein is not a designed to make money -- it's designed
+    to provide simple answers to simple questions.
+
+  %dt Is the RankNStein number my "page rank"?
+  %dd
+    No. "Page Rank" is a 0-10 value, determined by a patented algorithm, that determines a webpage's relative
+    value in the eyes of Google. The RankNStein rank is much simpler, its indicates where in a given Google
+    search your webpage lands. When someone searches for "atlanta ruby programmer" the wepage at "http://atlrug.org/"
+    will have a rank of 12 (at this time), meaning that it is the 12th entry in the search results returned by Google. 
+    By default, Google displays 10 results per page, so the AtlRUG.org listing will be on the second page.
+  
+  %dt Do I need to enter the protocol (http/https)?
+  %dd No. RankNStein will match against http and https.
+  
+  %dt Do I need to specify the 'www'?
+  %dd No. RankNStein will match against the domain with or without the 'www'.
+  
+  %dt Can I specify a complete URL with a full path?
+  %dd 
+    Absolutely. RankNStein matches against the beginning of the URL. If you want to see where a
+    specific page ranks, use the full path for that URL.
+    
+  
   
