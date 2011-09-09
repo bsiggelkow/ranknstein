@@ -4,13 +4,12 @@
 require(File.join(File.dirname(__FILE__), 'app', 'ranknstein'))
 
 require 'rake'
-require 'spec/rake/spectask'
-# require 'rake/rdoctask'
+require 'rspec/core/rake_task'
 
-COMMON_SPECS = FileList['spec/**/*_spec.rb']
+#COMMON_SPECS = FileList['spec/**/*_spec.rb']
 
 desc "Run all specs in spec directory"
-Spec::Rake::SpecTask.new(:spec) do |t|
-  t.spec_opts = ['--options', "\"spec/spec.opts\""]
-  t.spec_files = COMMON_SPECS
+RSpec::Core::RakeTask.new(:spec) do |t|
+#  t.rspec_opts = ['--options', "\"spec/spec.opts\""]
+#  t.files = COMMON_SPECS
 end

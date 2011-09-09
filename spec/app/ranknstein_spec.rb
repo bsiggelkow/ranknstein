@@ -1,12 +1,12 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
-set :environment, :test
+# set :environment, :test
 
 describe 'Ranknstein' do
   include Rack::Test::Methods
   
   def app
-    Sinatra::Application
+    Ranknstein
   end
 
   describe 'get /' do
